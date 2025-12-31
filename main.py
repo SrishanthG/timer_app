@@ -5,7 +5,11 @@ import time
 
 if __name__ == "__main__":
     manager = TimerManager()
-    manager.new_timer(int(input('Number of hours: ')), int(input('Number of minutes: ')), int(input('Number of seconds: ')))
+
+    user_input = input("Enter amount of time for timer (HH:MM:SS): ")
+    user_input = list(map(int, user_input.split(":")))
+
+    manager.new_timer(user_input[0], user_input[1], user_input[2])
 
     while True:
         delay = manager.next_wakeup()
